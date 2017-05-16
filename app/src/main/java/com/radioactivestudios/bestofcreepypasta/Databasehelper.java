@@ -20,7 +20,7 @@ import java.io.OutputStream;
 public class Databasehelper extends SQLiteOpenHelper {
 
     private static String Db_path = "data/data/com.radioactivestudios.bestofcreepypasta/databases";
-    private static String Db_Name = "CreepyPastaCollection2.db";
+    private static String Db_Name = "CreepyPastaCollection3.db";
     private SQLiteDatabase CreepYPastaDatabase;
     private final Context DbContext;
 
@@ -84,16 +84,16 @@ public class Databasehelper extends SQLiteOpenHelper {
         String mypath = Db_path + Db_Name;
         CreepYPastaDatabase = SQLiteDatabase.openDatabase(mypath, null, SQLiteDatabase.OPEN_READONLY);
         try {
-            Cursor cursor = CreepYPastaDatabase.rawQuery("Select * from Dummy", null);
+            Cursor cursor = CreepYPastaDatabase.rawQuery("Select * from CreepyPastaCollection", null);
             if (cursor.moveToFirst()) {
                while(!cursor.isAfterLast()){
 
-                    Inet = cursor.getString(cursor.getColumnIndex("storyTitle"));
+                    Inet = cursor.getString(cursor.getColumnIndex("Title"));
                     intet++;
-                    System.out.println("The main story is "+cursor.getString(cursor.getColumnIndex("storyTitle")));
+                    //System.out.println("The main story is "+cursor.getString(cursor.getColumnIndex("Title")));
 
                     //   Toast.makeText(Databasehelper.this,"HI",Toast.LENGTH_SHORT).show();
-                    Log.e("Demodd"," "+Inet);
+                    //Log.e("Demodd"," "+Inet);
                    cursor.moveToNext();
                 }
             }
